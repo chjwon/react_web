@@ -7,7 +7,7 @@ function App() {
   const [testNumber, setTestNumber] = useState("")
   const [testResult, setTestResult] = useState("")
 
-  const BACKEND_URL = ""
+  const BACKEND_URL = "http://127.0.0.1:5000"
 
   const reset = () => {
     setTest(0)
@@ -18,13 +18,17 @@ function App() {
   const makeTestRequest = () => {
     if (test === 1) {
       // Uncomment when backend ready
-      //axios.get(BACKEND_URL + "/test1?testVal=" + testNumber).then((data) => setTestResult(data))
-      setTestResult("Some test result 1")
+      axios.get(BACKEND_URL + "/test1?testVal=" + testNumber).then((r) => {
+        console.log(r)
+        setTestResult(r.data.result)})
+      //setTestResult("Some test result 1")
     }
     else if (test === 2) {
       // Uncomment when backend ready
-      //axios.get(BACKEND_URL + "/test2?testVal=" + testNumber).then((data) => setTestResult(data))
-      setTestResult("Some test result 2")
+      axios.get(BACKEND_URL + "/test2?testVal=" + testNumber).then((r) => {
+        console.log(r)
+        setTestResult(r.data.result)})
+      //setTestResult("Some test result 2")
     }
     else {
       console.error("unknown test type")
@@ -33,7 +37,6 @@ function App() {
 
   return (
     <>
-
       <div>
         <h1 style={{textAlign : "center"}}> Title </h1>
         {!test &&
@@ -46,14 +49,14 @@ function App() {
           </div>
         </div>
         }
-        {test &&
+        {test !== 0 &&
           <div style={{textAlign : "center"}}>
             <button onClick={() => reset()}>Cancel</button>
             {test === 1 ? 
                <h2>Test Type Alpha</h2> : <h2>Test Type Beta</h2>
             } 
             <h3> Input number here...</h3>
-            <input></input>
+            <input onChange={(e) => {setTestNumber(e.target.value)}} value={testNumber}></input>
             <button onClick={() => makeTestRequest()}>Test!</button>
             {testResult !== "" && 
               <div style={{marginTop : "5%"}}>
