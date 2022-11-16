@@ -17,4 +17,3 @@ def hd_model(inputData):
     # thal is thal: 0 = normal; 1 = fixed defect; 2 = reversable defect
     return temp[tempIndex+3]
 
-hd_model()

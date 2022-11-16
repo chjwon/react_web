@@ -1,6 +1,7 @@
 from foldrm import *
-from getCSV import diabete_binary_5050split
+from .getCSV import diabete_binary_5050split
 def dh_model(inputData):
+    print("inputData is: ",inputData)
     model, data = diabete_binary_5050split()
     data_train, data_test = split_data(data, ratio=0.8)
     model.fit(data_train, ratio=0.5)
@@ -15,4 +16,4 @@ def dh_model(inputData):
     # 0 = no diabetes 1 = prediabetes 2 = diabetes
     return temp[tempIndex+3]
 
-dh_model()
+
