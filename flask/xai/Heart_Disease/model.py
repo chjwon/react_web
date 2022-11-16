@@ -1,5 +1,5 @@
 from foldrm import *
-from getCSV import heart_disease
+from .getCSV import heart_disease
 
 
 def hd_model(inputData):

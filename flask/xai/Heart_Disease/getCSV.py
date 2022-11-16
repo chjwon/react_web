@@ -2,9 +2,10 @@ from fileinput import filename
 from foldrm import Classifier
 import numpy as np
 import pandas as pd
+import os
 
 def heart_disease():
-    path = "./datasets/"
+    path = os.getcwd() + "/xai/Heart_Disease/datasets/"
     fileName = "heart.csv"
     attrs = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
        'exang', 'oldpeak', 'slope', 'ca', 'target']
