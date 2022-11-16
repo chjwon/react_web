@@ -1,0 +1,10 @@
+.box {
+    width : 200px;
+    height : 150px;
+    background-color: gray;
+    outline: auto;
+    cursor: pointer;
+    margin : auto;
+    text-align: center;
+    align-items: center;
+}
