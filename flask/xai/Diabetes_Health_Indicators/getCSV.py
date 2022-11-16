@@ -2,6 +2,7 @@ from fileinput import filename
 from foldrm import Classifier
 import numpy as np
 import pandas as pd
+import os
 
 def diabetes_012_health_indicators():
     path = "./datasets/"
@@ -23,7 +24,7 @@ def diabetes_012_health_indicators():
 
 
 def diabete_binary_5050split():
-    path = "./datasets/"
+    path = os.getcwd() + "/xai/Diabetes_Health_Indicators/datasets/"
     fileName = "diabetes_binary_5050split_health_indicators_BRFSS2015.csv"
 
     attrs = ["HighBP","HighChol","CholCheck","BMI","Smoker","Stroke",
