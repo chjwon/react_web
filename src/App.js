@@ -22,7 +22,13 @@ function App() {
         const array_data = JSON.parse(testNumber)
         axios.post(BACKEND_URL + "/heartdisease/data", {data : array_data}).then((r) => {
           console.log(r)
-          setTestResult(r.data.result)})
+          if (r.data.result === 0) {
+            setTestResult("No Diabetes Detected")
+          }
+          else {
+            setTestResult(r.data.result)
+          }
+        })
       }
       catch {
         setTestResult("Invalid data result")
@@ -33,7 +39,13 @@ function App() {
         const array_data = JSON.parse(testNumber)
         axios.post(BACKEND_URL + "/diabete/data", {data : array_data}).then((r) => {
           console.log(r)
-          setTestResult(r.data.result)})
+          if (r.data.result === 0) {
+            setTestResult("No Heart Disease Detected")
+          }
+          else {
+            setTestResult(r.data.result)
+          }
+        })
       }
       catch {
         setTestResult("Invalid data result")
